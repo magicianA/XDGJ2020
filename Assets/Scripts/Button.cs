@@ -6,14 +6,10 @@ public class Button : BugableObjects
 {
     public bool isPressed = false;
     public Door door;
-    private SpriteRenderer spriteRenderer;
-    [SerializeField]
-    private Sprite activeSprite;
-    [SerializeField]
-    private Sprite deactiveSprite;
     public override void Start()
     {
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        base.Start();
+        animator.SetBool("hasSlot",hasBugSlot);
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -26,10 +22,8 @@ public class Button : BugableObjects
     }
     public override void Update()
     {
-        if(isPressed){
-            spriteRenderer.sprite = activeSprite;
-        }else{
-            spriteRenderer.sprite = deactiveSprite;
-        }
+        animator.SetBool("hasBug",hasBug);
+        animator.SetBool("isScanning",LevelManager.instance.isScanning);
+        animator.SetBool("isPressed",isPressed);
     }
 }

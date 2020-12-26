@@ -7,11 +7,13 @@ public class Stawberry : BugableObjects
 
     public override void Start()
     {
-        
+        base.Start();
+        animator.SetBool("hasSlot",hasBugSlot);
     }
     public override void Update()
     {
-        
+        animator.SetBool("hasBug",hasBug);
+        animator.SetBool("isScanning",LevelManager.instance.isScanning);
     }
     void OnTriggerEnter2D(Collider2D collider)
     {

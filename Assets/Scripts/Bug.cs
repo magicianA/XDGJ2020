@@ -18,9 +18,10 @@ public class BugableObjects : MonoBehaviour
             extraBugs.RemoveAt(0);
         }
     }
+    protected Animator animator;
     public virtual void Start()
     {
-        ;
+        animator = this.GetComponent<Animator>();
     }
     public virtual void Update()
     {

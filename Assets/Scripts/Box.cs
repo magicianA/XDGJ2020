@@ -11,5 +11,12 @@ public class Box : BugableObjects
         }else{
             this.gameObject.layer = LayerMask.NameToLayer("Objects");
         }
+        animator.SetBool("isScanning",LevelManager.instance.isScanning);
+        animator.SetBool("hasBug",hasBug);
+    }
+    public override void Start()
+    {
+        base.Start();
+        animator.SetBool("hasSlot",hasBugSlot);
     }
 }

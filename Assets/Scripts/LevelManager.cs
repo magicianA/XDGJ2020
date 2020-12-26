@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public int curStawberry = 0;
+    public bool isScanning = false;
     public int curLevel {get;private set;}
     public int totalLevel{
         get{
@@ -15,9 +16,12 @@ public class LevelManager : MonoBehaviour
     private GameObject levelInstanse;
     [SerializeField]
     private List<GameObject> levels = new List<GameObject>(); 
+    [SerializeField]
+    private GameObject pc;
     public void loadLevel(int level)
     {
         Destroy(levelInstanse);
+        pc.GetComponent<Player>().alive = false;
         curLevel = level;
         levelInstanse = Instantiate(levels[level]);
     }
@@ -37,14 +41,10 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
-        
+        pc = GameObject.Find("PC");
     }
     void Update()
     {
         
     }
-}
-public class LevelData : ScriptableObject
-{
-    public bool hasBugSlot;    
 }

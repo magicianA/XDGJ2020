@@ -32,16 +32,19 @@ public class Player : BugableObjects
         }
         if(Input.GetKeyDown(KeyCode.Tab)){
             isScanning = true;
+            LevelManager.instance.isScanning = true;
             mainCamera.saturation = 0;
         }
         if(Input.GetKeyUp(KeyCode.Tab)){
             isScanning = false;
+            LevelManager.instance.isScanning = false;
             mainCamera.saturation = 1;
         }
         if(isScanning){
             if(Input.GetMouseButtonDown(0)){
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back, 5f, LayerMask.GetMask("Default","PC","Objects"));
                 if(hit){
+                    //Debug.Log(hit.collider.name + "got hit!");
                     if(hit.collider.tag == "BugableObjects" || hit.collider.tag == "Player"){
                         Debug.Log(hit.collider.name);
                         BugableObjects col = hit.collider.GetComponent<BugableObjects>();
