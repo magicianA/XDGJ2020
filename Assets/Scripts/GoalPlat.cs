@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoalPlat : BugableObjects
 {
     private Player pc;
-    void Start()
+    public override void Start()
     {
         pc = GameObject.Find("PC").GetComponent<Player>();
     }

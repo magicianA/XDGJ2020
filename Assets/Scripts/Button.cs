@@ -11,7 +11,7 @@ public class Button : BugableObjects
     private Sprite activeSprite;
     [SerializeField]
     private Sprite deactiveSprite;
-    void Start()
+    public override void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
@@ -24,7 +24,7 @@ public class Button : BugableObjects
             }
         }
     }
-    void Update()
+    public override void Update()
     {
         if(isPressed){
             spriteRenderer.sprite = activeSprite;

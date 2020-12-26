@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : BugableObjects
 {
     public bool isOpen = false;
-    void Update()
+    public override void Update()
     {
         if(this.bugType == 1 || isOpen){
             this.gameObject.layer = LayerMask.NameToLayer("Default");
