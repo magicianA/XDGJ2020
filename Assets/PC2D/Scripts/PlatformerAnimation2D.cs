@@ -23,7 +23,7 @@ namespace PC2D
         {
             _motor = GetComponent<PlatformerMotor2D>();
             _animator = visualChild.GetComponent<Animator>();
-            _animator.Play("Idle");
+            _animator.Play("PC_idle");
 
             _motor.onJump += SetCurrentFacingLeft;
         }
@@ -31,13 +31,17 @@ namespace PC2D
         // Update is called once per frame
         void Update()
         {
+            if(LevelManager.instance.isScanning){
+                //_animator.Play("PC_scanning");
+            }
+            else{
             if (_motor.motorState == PlatformerMotor2D.MotorState.Jumping ||
                 _isJumping &&
                     (_motor.motorState == PlatformerMotor2D.MotorState.Falling ||
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast))
             {
                 _isJumping = true;
-                _animator.Play("Jump");
+                _animator.Play("PC_jump");
 
                 if (_motor.velocity.x <= -0.1f)
                 {
@@ -59,34 +63,34 @@ namespace PC2D
                 if (_motor.motorState == PlatformerMotor2D.MotorState.Falling ||
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast)
                 {
-                    _animator.Play("Fall");
+                    _animator.Play("PC_jump");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.WallSliding ||
                          _motor.motorState == PlatformerMotor2D.MotorState.WallSticking)
                 {
-                    _animator.Play("Cling");
+                    //_animator.Play("Cling");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.OnCorner)
                 {
-                    _animator.Play("On Corner");
+                    //_animator.Play("On Corner");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
                 {
-                    _animator.Play("Slip");
+                    //_animator.Play("Slip");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
                 {
-                    _animator.Play("Dash");
+                    //_animator.Play("Dash");
                 }
                 else
                 {
                     if (_motor.velocity.sqrMagnitude >= 0.1f * 0.1f)
                     {
-                        _animator.Play("Walk");
+                        _animator.Play("PC_walk");
                     }
                     else
                     {
-                        _animator.Play("Idle");
+                        _animator.Play("PC_idle");
                     }
                 }
             }
@@ -107,11 +111,15 @@ namespace PC2D
                 newScale.x = Mathf.Abs(newScale.x) * ((valueCheck > 0) ? 1.0f : -1.0f);
                 visualChild.transform.localScale = newScale;
             }
+            }
         }
 
         private void SetCurrentFacingLeft()
         {
             _currentFacingLeft = _motor.facingLeft;
+        }
+        public void PlayGet(){
+            _animator.Play("PC_get");
         }
     }
 }

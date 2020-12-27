@@ -5,6 +5,11 @@ using UnityEngine;
 public class Door : BugableObjects
 {
     public bool isOpen = false;
+    public override void Start()
+    {
+        base.Start();
+        animator.SetBool("hasSlot",hasBugSlot);
+    }
     public override void Update()
     {
         if(this.bugType == 1 || isOpen){
@@ -12,5 +17,9 @@ public class Door : BugableObjects
         }else{
             this.gameObject.layer = LayerMask.NameToLayer("Objects");
         }
+        
+        animator.SetBool("hasBug",hasBug);
+        animator.SetBool("isScanning",LevelManager.instance.isScanning);
+        animator.SetBool("isOpen",isOpen);
     }
 }
