@@ -23,5 +23,8 @@ public class Start : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void pause()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

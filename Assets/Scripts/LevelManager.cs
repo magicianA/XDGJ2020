@@ -34,6 +34,8 @@ public class LevelManager : MonoBehaviour
         pc.GetComponent<Player>().alive = false;
         curLevel = level;
         playedLevel = Mathf.Max(playedLevel,level);
+        pc.GetComponent<Player>().bugType = 0;
+        pc.GetComponent<Player>().bugStore = 0;
         curStawberry = 0;
         levelInstanse = Instantiate(levels[level]);
         UINumberArrange.instance.StrawberryCount(0);
@@ -64,6 +66,8 @@ public class LevelManager : MonoBehaviour
     }
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.R)){
+            loadLevel(curLevel);
+        }
     }
 }

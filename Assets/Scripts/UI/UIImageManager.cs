@@ -18,7 +18,7 @@ public class UIImageManager : MonoBehaviour
     }
     public void ImageManager(int bugType)
     {
-        Debug.Log(2333);
+        //Debug.Log(2333);
         if (bugType == 0)
         {
             NoBox.enabled = false;

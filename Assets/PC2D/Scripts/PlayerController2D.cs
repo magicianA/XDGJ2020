@@ -45,7 +45,7 @@ public class PlayerController2D : MonoBehaviour
     {
         // use last state to restore some ladder specific values
         if(!LevelManager.instance.isScanning){
-            
+        //_motor.FreedomStateExit();
         if (_motor.motorState != PlatformerMotor2D.MotorState.FreedomState)
         {
             // try to restore, sometimes states are a bit messy because change too much in one frame
@@ -124,6 +124,8 @@ public class PlayerController2D : MonoBehaviour
         }else{
             _motor.normalizedXMovement = 0;
             _motor.normalizedYMovement = 0;
+            _motor.velocity = Vector2.zero;
+            //_motor.FreedomStateEnter();
         }
     }
 }

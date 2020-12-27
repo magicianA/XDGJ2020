@@ -17,7 +17,6 @@ public class Door : BugableObjects
         }else{
             this.gameObject.layer = LayerMask.NameToLayer("Objects");
         }
-        
         animator.SetBool("hasBug",hasBug);
         animator.SetBool("isScanning",LevelManager.instance.isScanning);
         animator.SetBool("isOpen",isOpen);

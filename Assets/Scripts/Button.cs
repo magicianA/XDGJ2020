@@ -16,7 +16,10 @@ public class Button : BugableObjects
         if(collider.tag == "Player"){
             if(collider.GetComponent<Player>().bugType != 2 && this.bugType != 1 && this.bugType != 2){
                 isPressed = !isPressed;
+                if(door.bugType == 3)
+                    Instantiate(door.gameObject);
                 door.isOpen = isPressed;
+                //Instantiate(door.gameObject);
             }
         }
     }

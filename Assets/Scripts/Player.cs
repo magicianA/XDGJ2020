@@ -16,6 +16,7 @@ public class Player : BugableObjects
     }} 
     private PlatformerMotor2D motor2D;
     private Animator c_animator;
+    public GameObject body;
     public override void Start()
     {
         base.Start();
@@ -25,13 +26,18 @@ public class Player : BugableObjects
     public override void Update()
     {
         if(!alive){
+            if(bugType == 3){
+                Instantiate(body,transform.position,Quaternion.identity);
+                bugType = 0;
+            }
             //LevelManager.instance.Restart();
             transform.position = revivePoint;
             alive = true;
-            bugType = 0;
+            //bugType = 0;
             motor2D.velocity = Vector2.zero;
-            UIImageManager.instance.ImageManager(0);
+            //UIImageManager.instance.ImageManager(0);
             motor2D.staticEnvLayerMask = LayerMask.GetMask("Platform","Objects");
+
         }
         if(Input.GetKeyDown(KeyCode.Tab)){
             isScanning = true;
