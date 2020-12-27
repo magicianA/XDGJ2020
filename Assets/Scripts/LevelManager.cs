@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public int curStawberry = 0;
     public bool isScanning = false;
     public int curLevel {get;private set;}
+    public static int playedLevel = 0;
     public int totalLevel{
         get{
             return levels.Count;
@@ -33,7 +34,10 @@ public class LevelManager : MonoBehaviour
             return true;
         }else return false;
     }
-    
+    public void BeginLevel()
+    {
+        loadLevel(playedLevel);
+    }
     void Awake()
     {
         if(!instance){
@@ -43,6 +47,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         pc = GameObject.Find("PC");
+        BeginLevel();
     }
     void Update()
     {
