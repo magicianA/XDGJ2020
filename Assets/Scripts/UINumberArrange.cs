@@ -8,19 +8,19 @@ using UnityEngine.UI;
 
 public class UINumberArrange : MonoBehaviour
 {
-    public Text berryNumber;
-    public Text stageNumber;
+    public GameObject bNum;
 
+    public GameObject sNum;
+    public Sprite[] berrySprites = new Sprite[3];
+    public Sprite[] stageSprites = new Sprite[10];
     public void  StrawberryCount(int number)
     {
-        berryNumber.text = number.ToString();
-
+        bNum.GetComponent<Image>().sprite = berrySprites[number];
     }
 
     public void StageCount(int number)
     {
-        stageNumber.text = number.ToString();
-
+        sNum.GetComponent<Image>().sprite = berrySprites[number];
     }
     // Start is called before the first frame update
     void Start()

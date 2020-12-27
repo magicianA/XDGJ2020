@@ -11,6 +11,12 @@ public class UIImageManager : MonoBehaviour
 
     public void ImageManager(int bugType)
     {
+        if (bugType == 0)
+        {
+            NoBox.enabled = false;
+            NoTrigger.enabled = false ;
+            NoDestory.enabled = false;
+        }
         if (bugType == 1)
         {
             NoBox.enabled = true;
@@ -31,16 +37,5 @@ public class UIImageManager : MonoBehaviour
             NoDestory.enabled = true;
         }
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
