@@ -15,8 +15,11 @@ public class Player : BugableObjects
         return bugStore == 0;
     }} 
     private PlatformerMotor2D motor2D;
+    private Animator c_animator;
     public override void Start()
     {
+        base.Start();
+        c_animator = GetComponentInChildren<Animator>();
         motor2D = this.GetComponent<PlatformerMotor2D>();
     }
     public override void Update()
@@ -41,6 +44,10 @@ public class Player : BugableObjects
             mainCamera.saturation = 1;
         }
         if(isScanning){
+            var animStatus = c_animator.GetAnimatorTransitionInfo(0);
+            Debug.Log(animStatus.IsName("PC_scanning"));
+            if(!animStatus.IsName("PC_get"))
+                c_animator.Play("PC_scanning");
             if(Input.GetMouseButtonDown(0)){
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back, 5f, LayerMask.GetMask("Default","PC","Objects"));
                 if(hit){
@@ -51,6 +58,7 @@ public class Player : BugableObjects
                         if(col.hasBug && this.hasStore){
                             if(Vector3.Distance(col.transform.position,this.transform.position) <= 10f){
                                 Debug.Log("Bug stored from " + col.name);
+                                c_animator.Play("PC_get");
                                 this.bugStore = col.bugType;
                                 col.bugType = 0;
                                 col.moreBugs();

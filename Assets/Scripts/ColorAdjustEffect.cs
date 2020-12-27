@@ -4,8 +4,11 @@ using System.Collections;
 //继承自PostEffectBase
 public class ColorAdjustEffect : PostEffectBase {
  
-    private float brightness = 1.0f;//亮度
-    private float contrast = 1.0f;  //对比度
+    [Range(0.0f, 3.0f)]
+    public float brightness = 1.0f;//亮度
+    
+    [Range(0.0f, 3.0f)]
+    public float contrast = 1.0f;  //对比度
     [Range(0.0f, 3.0f)]
     public float saturation = 1.0f;//饱和度
  

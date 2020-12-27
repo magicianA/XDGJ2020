@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
         Destroy(levelInstanse);
         pc.GetComponent<Player>().alive = false;
         curLevel = level;
+        curStawberry = 0;
         levelInstanse = Instantiate(levels[level]);
     }
     public bool NextLevel()

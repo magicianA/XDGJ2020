@@ -10,11 +10,13 @@ public class PlayerController2D : MonoBehaviour
     private bool _restored = true;
     private bool _enableOneWayPlatforms;
     private bool _oneWayPlatformsAreWalls;
+    private Animator animator;
 
     // Use this for initialization
     void Start()
     {
         _motor = GetComponent<PlatformerMotor2D>();
+        animator = GetComponent<Animator>();
     }
 
     // before enter en freedom state for ladders
@@ -42,6 +44,8 @@ public class PlayerController2D : MonoBehaviour
     void Update()
     {
         // use last state to restore some ladder specific values
+        if(!LevelManager.instance.isScanning){
+            
         if (_motor.motorState != PlatformerMotor2D.MotorState.FreedomState)
         {
             // try to restore, sometimes states are a bit messy because change too much in one frame
@@ -63,7 +67,6 @@ public class PlayerController2D : MonoBehaviour
         {
             _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
             _motor.normalizedYMovement = Input.GetAxis(PC2D.Input.VERTICAL);
-
             return; // do nothing more
         }
 
@@ -117,6 +120,10 @@ public class PlayerController2D : MonoBehaviour
         if (Input.GetButtonDown(PC2D.Input.DASH))
         {
             _motor.Dash();
+        }
+        }else{
+            _motor.normalizedXMovement = 0;
+            _motor.normalizedYMovement = 0;
         }
     }
 }
