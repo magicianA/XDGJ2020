@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public int curStawberry = 0;
     public bool isScanning = false;
     public int curLevel {get;private set;}
+    public static int playedLevel;
     public int totalLevel{
         get{
             return levels.Count;

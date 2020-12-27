@@ -44,6 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: PC
+  - name: UI
     uniqueID: 3563938687
+    locked: 0
+  - name: Add
+    uniqueID: 357555617
     locked: 0

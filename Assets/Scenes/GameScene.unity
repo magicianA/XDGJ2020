@@ -256,16 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0038ae551f916a94e83114ed17d13e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   hasBugSlot: 0
   bugType: 0
   extraBugs: 
-  animator: {fileID: 0}
 --- !u!61 &28460757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3696,16 +3689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0038ae551f916a94e83114ed17d13e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   hasBugSlot: 0
   bugType: 0
   extraBugs: 
-  animator: {fileID: 0}
 --- !u!61 &1255757605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4017,7 +4003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 217.6, y: 164.4}
+  m_AnchoredPosition: {x: 217, y: 168}
   m_SizeDelta: {x: 190, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351307069
@@ -4247,16 +4233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0038ae551f916a94e83114ed17d13e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   hasBugSlot: 0
   bugType: 0
   extraBugs: 
-  animator: {fileID: 0}
 --- !u!95 &1474350799
 Animator:
   serializedVersion: 3
@@ -5167,7 +5146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118.5, y: 83.8}
+  m_AnchoredPosition: {x: -117, y: 83.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838504233
