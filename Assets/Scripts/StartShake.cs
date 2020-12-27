@@ -9,6 +9,6 @@ public class StartShake : MonoBehaviour
 
     public void Start()
     {
-        transform.DOLocalMoveY(12,1f).SetEase(Ease.InOutCubic).SetLoops(-1,LoopType.Yoyo);
+        transform.DOLocalMoveY(12,3f).SetEase(Ease.InOutCubic).SetLoops(-1,LoopType.Yoyo);
     }
 }

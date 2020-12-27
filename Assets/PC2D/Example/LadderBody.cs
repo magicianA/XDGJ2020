@@ -13,7 +13,6 @@ namespace PC2D
         public override void OnTriggerEnter2D(Collider2D o)
         {
             base.OnTriggerEnter2D(o);
-
             PlatformerMotor2D motor = o.GetComponent<PlatformerMotor2D>();
             if (motor)
             {
@@ -35,7 +34,7 @@ namespace PC2D
         public override void OnTriggerStay2D(Collider2D o)
         {
             base.OnTriggerStay2D(o);
-
+            
             PlatformerMotor2D motor = o.GetComponent<PlatformerMotor2D>();
             if (motor)
             {

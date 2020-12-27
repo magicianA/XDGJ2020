@@ -18,9 +18,10 @@ public class Stawberry : BugableObjects
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.tag == "Player"){
-            if(!hasBug && !collider.GetComponent<Player>().hasBug){
+            if(bugType != 1 && bugType != 2 && collider.GetComponent<Player>().bugType != 2){
                 LevelManager.instance.curStawberry++;
-                Destroy(this.gameObject);
+                if(bugType != 3)
+                    Destroy(this.gameObject);
             }
             
         }

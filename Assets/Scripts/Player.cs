@@ -17,6 +17,7 @@ public class Player : BugableObjects
     private PlatformerMotor2D motor2D;
     private Animator c_animator;
     public GameObject body;
+    private bool isMovedOnce = false;
     public override void Start()
     {
         base.Start();
@@ -33,6 +34,7 @@ public class Player : BugableObjects
             //LevelManager.instance.Restart();
             transform.position = revivePoint;
             alive = true;
+            isMovedOnce = false;
             //bugType = 0;
             motor2D.velocity = Vector2.zero;
             //UIImageManager.instance.ImageManager(0);
@@ -90,7 +92,10 @@ public class Player : BugableObjects
             switch(bugType){
                 case 1:
                     motor2D.staticEnvLayerMask = LayerMask.GetMask("Water");
-                    transform.position = transform.position + new Vector3(0,0.01f,0);
+                    if(!isMovedOnce){
+                        transform.position = transform.position + new Vector3(0,0.01f,0);
+                        isMovedOnce = true;
+                    }
                     break;
             }
         }

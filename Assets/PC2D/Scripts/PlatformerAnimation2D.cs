@@ -77,6 +77,9 @@ namespace PC2D
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
                 {
                     //_animator.Play("Slip");
+                }else if(_motor.IsOnLadder())
+                {
+                    _animator.Play("PC_climb");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
                 {
