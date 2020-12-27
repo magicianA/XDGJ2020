@@ -44,9 +44,7 @@ public class Player : BugableObjects
             mainCamera.saturation = 1;
         }
         if(isScanning){
-            var animStatus = c_animator.GetAnimatorTransitionInfo(0);
-            Debug.Log(animStatus.IsName("PC_scanning"));
-            if(!animStatus.IsName("PC_get"))
+            if(!c_animator.GetCurrentAnimatorStateInfo(0).IsName("PC_get"))
                 c_animator.Play("PC_scanning");
             if(Input.GetMouseButtonDown(0)){
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back, 5f, LayerMask.GetMask("Default","PC","Objects"));
@@ -68,6 +66,8 @@ public class Player : BugableObjects
                         }
                         else if(col.hasBugSlot && !col.hasBug && !this.hasStore){
                             if(Vector3.Distance(col.transform.position,this.transform.position) <= 10f){
+
+                                c_animator.Play("PC_get");
                                 Debug.Log("Bug Placed to " + col.name);
                                 col.bugType = this.bugStore;
                                 this.bugStore = 0;

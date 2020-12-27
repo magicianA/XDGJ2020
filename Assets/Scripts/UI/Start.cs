@@ -16,7 +16,11 @@ public class Start : MonoBehaviour
     }
     public void continueGame()
     {
-        SceneManager.LoadScene("GameScnen");
+        SceneManager.LoadScene("GameScene");
+    }
+    public void exitGame()
+    {
+        Application.Quit();
     }
 
 
