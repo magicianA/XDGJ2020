@@ -5,7 +5,16 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    public int curStawberry = 0;
+    private int _curStawberry = 0;
+    public int curStawberry{
+        get{
+            return _curStawberry;
+        }
+        set{
+            _curStawberry = value;
+            UINumberArrange.instance.StrawberryCount(value);
+        }
+    }
     public bool isScanning = false;
     public int curLevel {get;private set;}
     public static int playedLevel = 0;
@@ -24,8 +33,12 @@ public class LevelManager : MonoBehaviour
         Destroy(levelInstanse);
         pc.GetComponent<Player>().alive = false;
         curLevel = level;
+        playedLevel = Mathf.Max(playedLevel,level);
         curStawberry = 0;
         levelInstanse = Instantiate(levels[level]);
+        UINumberArrange.instance.StrawberryCount(0);
+        UINumberArrange.instance.StageCount(curLevel + 1);
+        UIImageManager.instance.ImageManager(0);
     }
     public bool NextLevel()
     {

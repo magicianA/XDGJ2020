@@ -30,7 +30,7 @@ public class Player : BugableObjects
             alive = true;
             bugType = 0;
             motor2D.velocity = Vector2.zero;
-            
+            UIImageManager.instance.ImageManager(0);
             motor2D.staticEnvLayerMask = LayerMask.GetMask("Platform","Objects");
         }
         if(Input.GetKeyDown(KeyCode.Tab)){
@@ -58,6 +58,7 @@ public class Player : BugableObjects
                                 Debug.Log("Bug stored from " + col.name);
                                 c_animator.Play("PC_get");
                                 this.bugStore = col.bugType;
+                                UIImageManager.instance.ImageManager(bugStore);
                                 col.bugType = 0;
                                 col.moreBugs();
                             }else{
@@ -66,7 +67,7 @@ public class Player : BugableObjects
                         }
                         else if(col.hasBugSlot && !col.hasBug && !this.hasStore){
                             if(Vector3.Distance(col.transform.position,this.transform.position) <= 10f){
-
+                                UIImageManager.instance.ImageManager(0);
                                 c_animator.Play("PC_get");
                                 Debug.Log("Bug Placed to " + col.name);
                                 col.bugType = this.bugStore;

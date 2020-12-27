@@ -24,6 +24,9 @@ public class GoalPlat : BugableObjects
     {
         animator.SetBool("hasBug",hasBug);
         animator.SetBool("isScanning",LevelManager.instance.isScanning);
+        if(LevelManager.instance.curStawberry == 3  ){
+          ;  //transform.GetChild(0)
+        }
     }
 }
 
